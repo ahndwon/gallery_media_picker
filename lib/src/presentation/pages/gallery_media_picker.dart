@@ -48,7 +48,8 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
   void dispose() {
     if (mounted) {
       /// clear all controller list
-      provider.onPickMax.removeListener(GalleryFunctions.onPickMax(provider));
+      provider.onPickMax
+          .removeListener(() => GalleryFunctions.onPickMax(provider));
       provider.pickedFile.clear();
       provider.picked.clear();
       provider.pathList.clear();
