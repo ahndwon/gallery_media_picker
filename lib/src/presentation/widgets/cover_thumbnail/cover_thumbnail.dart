@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_media_picker/gallery_media_picker.dart';
 import 'package:gallery_media_picker/src/core/decode_image.dart';
 import 'package:gallery_media_picker/src/core/functions.dart';
 import 'package:gallery_media_picker/src/presentation/pages/gallery_media_picker_controller.dart';
@@ -8,12 +9,16 @@ class CoverThumbnail extends StatefulWidget {
   final int thumbnailQuality;
   final double thumbnailScale;
   final BoxFit thumbnailFit;
-  const CoverThumbnail(
-      {Key? key,
-      this.thumbnailQuality = 120,
-      this.thumbnailScale = 1.0,
-      this.thumbnailFit = BoxFit.cover})
-      : super(key: key);
+
+  final MediaPickerParamsModel paramsModel;
+
+  const CoverThumbnail({
+    required this.paramsModel,
+    Key? key,
+    this.thumbnailQuality = 120,
+    this.thumbnailScale = 1.0,
+    this.thumbnailFit = BoxFit.cover,
+  }) : super(key: key);
 
   @override
   State<CoverThumbnail> createState() => _CoverThumbnailState();
@@ -26,6 +31,7 @@ class _CoverThumbnailState extends State<CoverThumbnail> {
   @override
   void initState() {
     GalleryFunctions.getPermission(setState, provider);
+    provider.paramsModel = widget.paramsModel;
     super.initState();
   }
 

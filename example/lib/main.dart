@@ -160,6 +160,10 @@ class _ExampleState extends State<Example> {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              CoverThumbnail(
+                                paramsModel: MediaPickerParamsModel(),
+                              ),
+
                               /// select multiple / single
                               SizedBox(
                                 height: 30,
