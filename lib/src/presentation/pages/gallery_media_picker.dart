@@ -27,7 +27,7 @@ class GalleryMediaPicker extends StatefulWidget {
   State<GalleryMediaPicker> createState() => _GalleryMediaPickerState();
 }
 
-class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
+class _GalleryMediaPickerState extends State<GalleryMediaPicker> with AutomaticKeepAliveClientMixin{
   /// create object of PickerDataProvider
   final GalleryMediaPickerController provider = GalleryMediaPickerController();
 
@@ -134,4 +134,7 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
           )),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
