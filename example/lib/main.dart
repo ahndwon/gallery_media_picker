@@ -237,7 +237,9 @@ class _ExampleState extends State<Example> {
                                     });
                                   }).toString();
                                   if (mediaPath.isNotEmpty) {
-                                    await Share.shareFiles(mediaPath);
+                                    await Share.shareXFiles(mediaPath
+                                        .map((e) => XFile(e))
+                                        .toList());
                                   }
                                   mediaPath.clear();
                                 },
